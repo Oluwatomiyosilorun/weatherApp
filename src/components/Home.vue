@@ -1,14 +1,18 @@
 <template>
   <div class="hello">
+    <Celius />
     <Search />
   </div>
 </template>
 
 <script>
 import Search from "./Search.vue";
+import Celius from "./Celius.vue";
+
 export default {
   components: {
     Search,
+    Celius
   },
 };
 </script>
