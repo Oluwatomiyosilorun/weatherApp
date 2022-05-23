@@ -20,14 +20,12 @@ const actions = {
         },
       }
     );
-
-    console.log(response.data);
     commit('SET_WEATHER', response.data);
   },
 };
 
 const mutations = {
-  SET_WEATHER: (state, weather) => (state.weather = weather),
+    SET_WEATHER: (state, weather) => (state.weather = weather)
 };
 
 export default {
