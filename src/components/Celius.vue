@@ -1,14 +1,12 @@
 <template>
   <div class="weather">
-    <small>the.weather</small>
+    <p class="weather-subtitle">the.weather</p>
 
-    <div class="weather-output" v-for="weatherData in allWeather" :key="weatherData.location.tz_id">
-      <p>{{weatherData.location.name}}</p>
+    <div class="weather-output">
+      <p class="weather-output-celcius">{{ allWeather.current.temp_c }}&#176;</p>
+      <p class="weather-output-name">{{ allWeather.location.name}} <span>{{ allWeather.location.localtime}}</span></p>
+      <p class="weather-output-cloudy">&#9729; <span>{{ allWeather.current.condition.text }}</span></p>
     </div>
-
-    <!-- <div class="weather-data" v-for="weatherData in weather" :key="weatherData.country">
-        <h2>Going home</h2>
-    </div> -->
   </div>
 </template>
 
@@ -25,14 +23,46 @@ export default {
   computed: mapGetters("weather", { allWeather: "allWeather" }),
 
   mounted() {
-    this.$store.dispatch("fetchWeather");
+    this.fetchWeather();
   },
+
+  //   mounted() {
+  //     this.$store.dispatch("fetchWeather");
+  //   },
 };
 </script>
 <style scoped lang="scss">
 .weather {
-  background-color: black;
   margin: 10%;
   color: white;
+  width: 50%;
+  &-subtitle {
+    font-size: 13px;
+    font-weight: bold;
+  }
+  &-output {
+    margin-top: 50%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    &-celcius {
+      font-size: 80px;
+    }
+    &-name {
+      font-size: 40px;
+      span {
+        font-size: 14px;
+        display: block;
+      }
+    }
+    &-cloudy{
+      font-size: 30px;
+      margin-left: 3%;
+      span{
+        font-size: 14px;
+        display: block;
+      }
+    }
+  }
 }
 </style>
