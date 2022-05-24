@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import Search from "./Search.vue";
-import Celius from "./Celius.vue";
+import Search from "./Search";
+import Celius from "./Celius";
 
 export default {
   components: {
