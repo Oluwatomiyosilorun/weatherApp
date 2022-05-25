@@ -1,14 +1,20 @@
 <template>
   <div class="search">
     <aside>
-      <input type="search" placeholder="Another Location" name="location" />
+      <input type="search" placeholder="Another Location" name="location" v-model="searchInput" />
       <span>&#x1F50D;</span>
     </aside>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      searchInput: "",
+    };
+  },
+};
 </script>
 
 <style scoped lang="scss">
