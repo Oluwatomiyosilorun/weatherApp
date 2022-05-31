@@ -1,18 +1,34 @@
 <template>
   <div class="search">
     <aside>
-      <input type="search" placeholder="Another Location" name="location" v-model="searchInput" />
-      <span>&#x1F50D;</span>
+      <input
+        type="search"
+        placeholder="Another Location"
+        name="location"
+        v-model="searchInput"
+      />
+      <button @click="searchWeather(searchInput)">
+        <span>&#x1F50D;</span>
+      </button>
     </aside>
   </div>
+  {{ allWeather }}
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
+
 export default {
   data() {
     return {
       searchInput: "",
     };
+  },
+  methods: {
+    ...mapActions("weather", { searchWeather: "searchWeather" }),
+  },
+  computed: {
+    ...mapGetters("weather", { allWeather: "allWeather" }),
   },
 };
 </script>

@@ -14,6 +14,9 @@ export default {
     Search,
     Celius
   },
+  mounted() {
+    console.log(this.$store.getters.allWeather);
+  }
 };
 </script>
 

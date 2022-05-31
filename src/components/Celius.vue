@@ -3,10 +3,17 @@
     <p class="weather-subtitle">the.weather</p>
 
     <div class="weather-output">
+      <p class="weather-output-celcius">abc&#176;</p>
+      <p class="weather-output-name">hij <span>efg</span></p>
+      <p class="weather-output-cloudy">&#9729; <span>Klm</span></p>
+    </div>
+
+    <!-- <div class="weather-output">
       <p class="weather-output-celcius">{{ allWeather?.current?.temp_c }}&#176;</p>
       <p class="weather-output-name">{{ allWeather?.location?.name}} <span>{{ allWeather?.location?.localtime}}</span></p>
       <p class="weather-output-cloudy">&#9729; <span>{{ allWeather?.current?.condition?.text }}</span></p>
-    </div>
+    </div> -->
+    <!-- Put placeholders here -->
   </div>
 </template>
 
