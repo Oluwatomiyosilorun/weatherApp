@@ -1,8 +1,9 @@
 <template>
   <div class="hello">
-    <Celius />
-    <Search />
+    <Celius :allWeather="ongetData" />
+    <Search @data="getAll" />
   </div>
+  
 </template>
 
 <script>
@@ -10,13 +11,20 @@ import Search from "./Search";
 import Celius from "./Celius";
 
 export default {
+  data() {
+    return {
+      ongetData: [],
+    };
+  },
   components: {
     Search,
-    Celius
+    Celius,
   },
-  mounted() {
-    console.log(this.$store.getters.allWeather);
-  }
+  methods: {
+    getAll(param) {
+      this.ongetData = param;
+    },
+  },
 };
 </script>
 
@@ -30,7 +38,7 @@ export default {
   background-image: url("../assets/night.jpg");
   background-position: center;
   background-repeat: no-repeat;
-  background-size:cover;
+  background-size: cover;
   p {
     margin: 0;
     padding: 0;

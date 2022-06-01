@@ -7,12 +7,11 @@
         name="location"
         v-model="searchInput"
       />
-      <button @click="searchWeather(searchInput)">
+      <button @click="getWeatherData">
         <span>&#x1F50D;</span>
       </button>
     </aside>
   </div>
-  {{ allWeather }}
 </template>
 
 <script>
@@ -24,8 +23,18 @@ export default {
       searchInput: "",
     };
   },
+
   methods: {
     ...mapActions("weather", { searchWeather: "searchWeather" }),
+
+    getWeatherData() {
+      this.$store.dispatch("weather/searchWeather", this.searchInput).then(
+        (response) => {
+          this.$emit("data", response);
+        },
+        (error) => {console.log(error);}
+      );
+    },
   },
   computed: {
     ...mapGetters("weather", { allWeather: "allWeather" }),
